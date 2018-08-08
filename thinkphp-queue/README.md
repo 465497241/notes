@@ -203,7 +203,7 @@ namespace application\index\controller;
       public function fire(Job $job,$data){
           // 如有必要,可以根据业务需求和数据库中的最新数据,判断该任务是否仍有必要执行.
           $isJobStillNeedToBeDone = $this->checkDatabaseToSeeIfJobNeedToBeDone($data);
-          if(!isJobStillNeedToBeDone){
+          if(!$isJobStillNeedToBeDone){
               $job->delete();
               return;
           }
