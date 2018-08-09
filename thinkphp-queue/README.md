@@ -462,7 +462,7 @@ php think queue:work --queue helloJobQueue
   public function actionWithMultiTask(){
       	
     $taskType = $_GET['taskType'];
-      switch ($whichTask) {
+      switch ($taskType) {
          case 'taskA':
              $jobHandlerClassName  = 'application\index\job\MultiTask@taskA';
              $jobDataArr = ['a'	=> '1'];
@@ -516,7 +516,7 @@ php think queue:work --queue helloJobQueue
     
       public function taskB(Job $job,$data){
           
-          $isJobDone = $this->_doTaskA($data);
+          $isJobDone = $this->_doTaskB($data);
 
           if ($isJobDone) {
               $job->delete();
